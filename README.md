@@ -15,7 +15,3 @@ Bu proje, Mehmet Efe Uslan için Öğüt Su Karagün tarafından geliştirilmiş
 - Öğüt Su Karagün: biz@ogut.su
 
 Herhangi bir soru veya geri bildirim için yukarıdaki e-posta adreslerinden iletişime geçebilirsiniz.
-
-## Lisans
-
-Bu proje MIT lisansı ile lisanslanmıştır.
