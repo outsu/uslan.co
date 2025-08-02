@@ -1,7 +1,7 @@
 import './App.css'
 import homeBackground from './assets/home-background.jpg'
 import outDarkLogo from './assets/out-dark.png'
-import { MicVocal, Headphones, Aperture, Clapperboard, Palette, ChevronDown } from 'lucide-react'
+import { MicVocal, Headphones, Aperture, Clapperboard, ChevronDown } from 'lucide-react'
 import { motion, useAnimation, useInView } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 
