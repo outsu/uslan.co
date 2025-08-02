@@ -18,4 +18,4 @@ Herhangi bir soru veya geri bildirim için yukarıdaki e-posta adreslerinden ile
 
 ## Lisans
 
-Bu proje MIT lisansı ile lisanslanmıştır.
+Projenin bütün hakları saklıdır. Değişiklik yapma hakkı Öğüt Su Karagün ve Mehmet Efe Uslan'a aittir.
