@@ -1,0 +1,1460 @@
+/* Modern Portfolio Page Styles - Anti-Design Aesthetic */
+
+.portfolio-page {
+  min-height: 100vh;
+  background: #0a0a0a;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  padding: 4rem;
+  padding-top: 6rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Header */
+.portfolio-header {
+  margin: 3rem 0;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+}
+
+.back-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.back-link:hover {
+  color: #00ff88;
+  transform: translateX(-2px);
+}
+
+.status-text {
+  color: #666;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+.header-main h1.portfolio-title {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  position: relative;
+}
+
+.title-meta {
+  font-size: 0.4em;
+  color: #666;
+  font-weight: 400;
+  margin-left: 1rem;
+}
+
+.portfolio-subtitle {
+  font-size: 1.125rem;
+  color: #999;
+  margin: 1rem 0 0;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Controls */
+.portfolio-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: #111111;
+  border: 1px solid #222;
+  border-radius: 8px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Mobile Accordion */
+.mobile-controls-header {
+  display: none;
+}
+
+.accordion-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: none;
+  border: 1px solid #333;
+  color: #ffffff;
+  padding: 1rem;
+  border-radius: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.accordion-toggle:hover {
+  border-color: #555;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.active-filters-indicator {
+  color: #00ff88;
+  margin-left: 0.5rem;
+  font-size: 0.6rem;
+  vertical-align: middle;
+}
+
+.controls-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.controls-content.expanded {
+  display: flex;
+}
+
+.control-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.control-label {
+  font-size: 0.75rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-width: 3rem;
+}
+
+/* Search */
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #0a0a0a;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  min-width: 20rem;
+}
+
+.search-wrapper svg {
+  color: #666;
+  flex-shrink: 0;
+}
+
+.search-input {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  width: 100%;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: #666;
+}
+
+/* Filter Buttons */
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filter-btn {
+  background: #0a0a0a;
+  border: 1px solid #333;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: lowercase;
+}
+
+.filter-btn:hover {
+  border-color: #555;
+  background: #111;
+}
+
+.filter-btn.active {
+  background: #00ff88;
+  color: #0a0a0a;
+  border-color: #00ff88;
+  font-weight: 600;
+}
+
+/* View Controls */
+.view-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.view-buttons {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.view-btn {
+  background: #0a0a0a;
+  border: 1px solid #333;
+  color: #ffffff;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.view-btn:hover {
+  border-color: #555;
+  background: #111;
+}
+
+.view-btn.active {
+  background: #00ff88;
+  color: #0a0a0a;
+  border-color: #00ff88;
+}
+
+/* Sort Controls */
+.sort-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sort-select {
+  background: #0a0a0a;
+  border: 1px solid #333;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.sort-select:hover {
+  border-color: #555;
+}
+
+/* Column Controls */
+.column-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.column-buttons {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.column-btn {
+  background: #0a0a0a;
+  border: 1px solid #333;
+  color: #ffffff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  min-width: 2rem;
+  text-align: center;
+}
+
+.column-btn:hover {
+  border-color: #555;
+  background: #111;
+}
+
+.column-btn.active {
+  background: #00ff88;
+  color: #0a0a0a;
+  border-color: #00ff88;
+}
+
+/* Results Info */
+.results-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  color: #999;
+}
+
+.clear-filters {
+  background: none;
+  border: 1px solid #333;
+  color: #ff3b3b;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clear-filters:hover {
+  border-color: #ff3b3b;
+  background: rgba(255, 59, 59, 0.1);
+}
+
+/* Portfolio Content */
+.portfolio-content {
+  margin-bottom: 4rem;
+}
+
+.portfolio-content.grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.portfolio-content.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Masonry Layout */
+.portfolio-masonry {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.masonry-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  min-width: 0; /* Prevents flex items from overflowing */
+}
+
+.columns-1 {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.columns-1 .masonry-column {
+  flex: 1;
+}
+
+.columns-2 .masonry-column {
+  flex: 1;
+  min-width: calc(50% - 1rem);
+}
+
+.columns-3 .masonry-column {
+  flex: 1;
+  min-width: calc(33.333% - 1.333rem);
+}
+
+.columns-4 .masonry-column {
+  flex: 1;
+  min-width: calc(25% - 1.5rem);
+}
+
+.portfolio-item {
+  background: #111111;
+  border: 1px solid #222;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.portfolio-item:hover {
+  border-color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* No Results */
+.no-results {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #666;
+}
+
+.no-results-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.no-results h3 {
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem;
+  color: #ffffff;
+}
+
+.no-results p {
+  margin: 0 0 2rem;
+  color: #999;
+}
+
+.reset-btn {
+  background: #00ff88;
+  border: none;
+  color: #0a0a0a;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.reset-btn:hover {
+  background: #00cc70;
+  transform: translateY(-1px);
+}
+
+/* Footer Stats */
+.portfolio-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2rem;
+  border-top: 1px solid #222;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.stats {
+  display: flex;
+  gap: 2rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.stat-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #00ff88;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: #666;
+  text-transform: lowercase;
+}
+
+.footer-debug {
+  font-size: 0.75rem;
+  color: #444;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .portfolio-page {
+    padding: 2rem;
+    padding-top: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  
+  .portfolio-controls {
+    padding: 1rem;
+  }
+  
+  /* Show mobile accordion header */
+  .mobile-controls-header {
+    display: block !important;
+  }
+  
+  /* Hide controls content by default on mobile */
+  .controls-content {
+    display: none;
+    margin-top: 1rem;
+  }
+  
+  .controls-content.expanded {
+    display: flex;
+    animation: slideDown 0.3s ease-out;
+  }
+  
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .control-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  
+  .search-wrapper {
+    min-width: unset;
+    width: 100%;
+  }
+  
+  .portfolio-content.grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .portfolio-masonry {
+    gap: 1rem;
+  }
+  
+  .columns-2 .masonry-column,
+  .columns-3 .masonry-column,
+  .columns-4 .masonry-column {
+    min-width: 100%;
+  }
+  
+  .columns-2,
+  .columns-3,
+  .columns-4 {
+    flex-direction: column;
+  }
+  
+  .header-top {
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  
+  .stats {
+    gap: 1rem;
+  }
+  
+  .portfolio-footer {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  
+  .visual-main-asset {
+    height: 250px;
+  }
+  
+  .carousel-btn {
+    width: 36px;
+    height: 36px;
+    opacity: 1;
+  }
+  
+  .carousel-prev {
+    left: 0.5rem;
+  }
+  
+  .carousel-next {
+    right: 0.5rem;
+  }
+  
+  .visual-thumbnails {
+    padding: 0.75rem;
+    gap: 0.375rem;
+  }
+  
+  .thumbnail-btn {
+    width: 50px;
+    height: 38px;
+  }
+}
+
+@media (max-width: 480px) {
+  
+  .filter-buttons {
+    justify-content: center;
+  }
+  
+  .view-controls {
+    justify-content: center;
+  }
+  
+  .visual-main-asset {
+    height: 200px;
+  }
+  
+  .carousel-btn {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .thumbnail-btn {
+    width: 45px;
+    height: 34px;
+  }
+  
+  .visual-thumbnails {
+    padding: 0.5rem;
+  }
+}
+
+/* Subtle glitch effect for anti-design */
+.portfolio-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent 98%, #00ff88 99%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.portfolio-item:hover::before {
+  opacity: 0.1;
+}
+
+/* Modern scrollbar */
+.portfolio-page::-webkit-scrollbar {
+  width: 8px;
+}
+
+.portfolio-page::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+.portfolio-page::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+.portfolio-page::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* AudioGrid Component Styles */
+.audio-grid-item {
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.audio-grid-item:hover {
+  border-color: #333;
+  transform: translateY(-2px);
+}
+
+.audio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.audio-info h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 0.5rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.audio-info p {
+  color: #999;
+  font-size: 0.875rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.audio-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  transform: rotate(calc(var(--random-rotation) / 45 * 1deg));
+}
+
+.play-pause-btn {
+  background: #00ff88;
+  border: none;
+  color: #0a0a0a;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.play-pause-btn:hover {
+  background: #00cc70;
+  transform: scale(1.05);
+}
+
+.play-pause-btn:disabled {
+  background: #333;
+  color: #666;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.progress-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  background: #333;
+  border-radius: 2px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #00ff88;
+  transition: width 0.1s ease;
+}
+
+.time-display {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: #666;
+}
+
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.volume-slider {
+  width: 60px;
+  height: 4px;
+  background: #333;
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+}
+
+.volume-fill {
+  height: 100%;
+  background: #00ff88;
+  border-radius: 2px;
+}
+
+/* VisualGrid Component Styles */
+.visual-grid-item {
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.visual-grid-item:hover {
+  border-color: #333;
+  transform: translateY(-2px);
+}
+
+/* Visual Carousel */
+.visual-carousel {
+  position: relative;
+}
+
+.visual-main-asset {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.visual-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.visual-main-asset:hover .visual-image {
+  transform: scale(1.02);
+}
+
+/* Carousel Controls */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  border: none;
+  color: #ffffff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  z-index: 2;
+}
+
+.visual-main-asset:hover .carousel-btn {
+  opacity: 1;
+}
+
+.carousel-prev {
+  left: 1rem;
+}
+
+.carousel-next {
+  right: 1rem;
+}
+
+.carousel-btn:hover {
+  background: rgba(0, 255, 136, 0.8);
+  color: #0a0a0a;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-counter {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background: rgba(0, 0, 0, 0.7);
+  color: #ffffff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 2;
+}
+
+.visual-main-asset:hover .carousel-counter {
+  opacity: 1;
+}
+
+/* Mobile Swipe Indicator */
+.mobile-swipe-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: #00ff88;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Show swipe indicator on mobile when hovering/touching */
+@media (max-width: 768px) {
+  .carousel-btn.desktop-only {
+    display: none;
+  }
+  
+  .mobile-swipe-indicator {
+    opacity: 0.7;
+  }
+  
+  .visual-main-asset:active .mobile-swipe-indicator {
+    opacity: 0.9;
+  }
+  
+  /* Make visual main asset more touch-friendly */
+  .visual-main-asset {
+    touch-action: pan-y pinch-zoom;
+    user-select: none;
+  }
+}
+
+/* Desktop only carousel buttons */
+@media (min-width: 769px) {
+  .mobile-swipe-indicator {
+    display: none;
+  }
+}
+
+/* Thumbnails */
+.visual-thumbnails {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: #0a0a0a;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #333 transparent;
+}
+
+.visual-thumbnails::-webkit-scrollbar {
+  height: 4px;
+}
+
+.visual-thumbnails::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.visual-thumbnails::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 2px;
+}
+
+.thumbnail-btn {
+  background: none;
+  border: 2px solid #333;
+  border-radius: 6px;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  width: 60px;
+  height: 45px;
+}
+
+.thumbnail-btn:hover {
+  border-color: #555;
+  transform: scale(1.05);
+}
+
+.thumbnail-btn.active {
+  border-color: #00ff88;
+  box-shadow: 0 0 8px rgba(0, 255, 136, 0.3);
+}
+
+.thumbnail-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.thumbnail-video {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.thumbnail-play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 255, 136, 0.8);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0a0a0a;
+}
+
+.visual-content {
+  padding: 1.5rem;
+}
+
+.visual-content h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 0.5rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.visual-content p {
+  color: #999;
+  font-size: 0.875rem;
+  margin: 0 0 1rem;
+  line-height: 1.5;
+}
+
+.visual-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: #666;
+}
+
+.visual-category {
+  background: #0a0a0a;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  border: 1px solid #333;
+}
+
+/* Loading States */
+.loading-placeholder {
+  background: #222;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.loading-placeholder::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  animation: loading-shimmer 1.5s infinite;
+}
+
+@keyframes loading-shimmer {
+  100% {
+    left: 100%;
+  }
+}
+
+/* Error States */
+.error-state {
+  background: rgba(255, 59, 59, 0.1);
+  border: 1px solid #ff3b3b;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  color: #ff3b3b;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+}
+
+/* Responsive Grid Items */
+@media (max-width: 768px) {
+  .audio-grid-item,
+  .visual-grid-item {
+    margin-bottom: 1rem;
+  }
+  
+  .audio-controls {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  
+  .volume-control {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .visual-content {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .audio-grid-item,
+  .visual-grid-item {
+    border-radius: 6px;
+  }
+  
+  .audio-header {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+  
+  .play-pause-btn {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .visual-image {
+    height: 200px;
+  }
+}
+
+/* Video Component Styles */
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(2px);
+  border-radius: inherit;
+}
+
+.video-play-button {
+  background: #00ff88;
+  border: none;
+  color: #0a0a0a;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 255, 136, 0.3);
+}
+
+.video-play-button:hover {
+  background: #00cc70;
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 255, 136, 0.4);
+}
+
+/* Category-Specific Styles */
+
+/* Wedding Category - Realistic wedding invitation paper design */
+.category-wedding {
+  position: relative;
+}
+
+.category-wedding .visual-grid-item,
+.category-wedding .audio-grid-item {
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.8) 0%, transparent 30%),
+    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.6) 0%, transparent 40%),
+    linear-gradient(135deg, #faf8f3 0%, #f5f1ea 50%, #f0ebe0 100%);
+  border: none;
+  border-radius: 0;
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.1),
+    0 8px 24px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  overflow: hidden;
+  position: relative;
+  transform: rotate(-0.5deg);
+  transition: transform 0.3s ease;
+}
+
+.category-wedding .visual-grid-item:hover,
+.category-wedding .audio-grid-item:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+/* Paper texture and elegant border */
+.category-wedding .visual-grid-item::before,
+.category-wedding .audio-grid-item::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border: 2px solid #d4af37;
+  border-image: linear-gradient(45deg, #d4af37, #e6c76a, #d4af37) 1;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 1px,
+      rgba(212, 175, 55, 0.02) 1px,
+      rgba(212, 175, 55, 0.02) 2px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 1px,
+      rgba(212, 175, 55, 0.02) 1px,
+      rgba(212, 175, 55, 0.02) 2px
+    );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Decorative corner flourishes */
+.category-wedding .visual-grid-item::after,
+.category-wedding .audio-grid-item::after {
+  content: '✦';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  color: #d4af37;
+  font-size: 12px;
+  z-index: 2;
+  text-shadow: 1px 1px 2px rgba(212, 175, 55, 0.3);
+}
+
+.category-wedding .visual-content h3,
+.category-wedding .audio-header h3 {
+  font-family: var(--wedding-font, 'Luxurious Script'), cursive;
+  color: #8b4513;
+  text-shadow: 1px 1px 2px rgba(212, 175, 55, 0.3);
+  font-size: 1.5rem;
+  line-height: 1.3;
+}
+
+/* Specific adjustments for different wedding fonts */
+.category-wedding[style*="Luxurious Script"] .visual-content h3,
+.category-wedding[style*="Luxurious Script"] .audio-header h3 {
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
+.category-wedding[style*="Instrument Serif"] .visual-content h3,
+.category-wedding[style*="Instrument Serif"] .audio-header h3 {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.category-wedding .visual-content,
+.category-wedding .audio-grid-item {
+  background: 
+    linear-gradient(180deg, rgba(250, 248, 243, 0.98) 0%, rgba(245, 241, 234, 0.95) 100%);
+  color: #5d4037;
+  border-radius: 0;
+  margin: 15px;
+  padding: 20px 15px 15px;
+  border: none;
+  position: relative;
+  z-index: 2;
+}
+
+.category-wedding .visual-content h3,
+.category-wedding .audio-header h3 {
+  font-family: var(--wedding-font, 'Luxurious Script'), cursive;
+  color: #8b4513;
+  text-shadow: 1px 1px 2px rgba(212, 175, 55, 0.3);
+  font-size: 1.5rem;
+  line-height: 1.3;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.category-wedding .visual-content p,
+.category-wedding .audio-grid-item p {
+  font-style: italic;
+  color: #6d4c41;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Experimental Category - Random letters with Sedgwick Ave and wavy border */
+.category-experimental {
+  position: relative;
+}
+
+.category-experimental .visual-grid-item,
+.category-experimental .audio-grid-item {
+  background: #0a0a0a;
+  position: relative;
+  overflow: hidden;
+  border: 3px solid var(--experimental-color, #6ADD6A);
+  border-radius: 8px;
+  clip-path: polygon(
+    0% 0%, 
+    100% 0%, 
+    100% 85%, 
+    95% 90%, 
+    90% 95%, 
+    85% 90%, 
+    80% 95%, 
+    75% 90%, 
+    70% 95%, 
+    65% 90%, 
+    60% 95%, 
+    55% 90%, 
+    50% 95%, 
+    45% 90%, 
+    40% 95%, 
+    35% 90%, 
+    30% 95%, 
+    25% 90%, 
+    20% 95%, 
+    15% 90%, 
+    10% 95%, 
+    5% 90%, 
+    0% 85%
+  );
+}
+
+/* Music Category - Skeumorphic music equipment aesthetic */
+.category-music {
+  position: relative;
+}
+
+.category-music .visual-grid-item,
+.category-music .audio-grid-item {
+  background: 
+    linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 50%, #1e1e1e 100%);
+  border: 2px solid #333;
+  border-radius: 12px;
+  box-shadow: 
+    inset 0 2px 4px rgba(255, 255, 255, 0.1),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.3),
+    0 8px 16px rgba(0, 0, 0, 0.4),
+    0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Vinyl record in corner */
+.category-music .visual-grid-item::before,
+.category-music .audio-grid-item::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 50px;
+  height: 50px;
+  background: 
+    radial-gradient(circle at 50% 50%, #1a1a1a 18%, #2a2a2a 19%, #2a2a2a 22%, #1a1a1a 23%),
+    radial-gradient(circle at 50% 50%, #333 0%, #111 100%);
+  border-radius: 50%;
+  border: 1px solid #444;
+  z-index: 3;
+  box-shadow: 
+    inset 0 2px 4px rgba(0, 0, 0, 0.5),
+    0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Vinyl center hole */
+.category-music .visual-grid-item::after,
+.category-music .audio-grid-item::after {
+  content: '';
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  width: 10px;
+  height: 10px;
+  background: #0a0a0a;
+  border-radius: 50%;
+  border: 1px solid #222;
+  z-index: 4;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Audio equipment knobs and sliders */
+.category-music .visual-content,
+.category-music .audio-grid-item {
+  background: 
+    linear-gradient(90deg, transparent 0%, transparent 20%, rgba(255, 255, 255, 0.02) 20%, rgba(255, 255, 255, 0.02) 21%, transparent 21%),
+    linear-gradient(0deg, transparent 0%, transparent 95%, rgba(255, 255, 255, 0.05) 95%),
+    linear-gradient(180deg, #1e1e1e 0%, #252525 100%);
+  color: #d4af87;
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Equipment panel indicators */
+.category-music .visual-content::before,
+.category-music .audio-grid-item::before {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  width: 6px;
+  height: 6px;
+  background: #00ff41;
+  border-radius: 50%;
+  box-shadow: 
+    0 0 4px #00ff41,
+    inset 0 1px 2px rgba(255, 255, 255, 0.3);
+  animation: musicPowerLED 3s ease-in-out infinite;
+}
+
+/* Small control knobs */
+.category-music .visual-content::after,
+.category-music .audio-grid-item::after {
+  content: '';
+  position: absolute;
+  bottom: 6px;
+  right: 20px;
+  width: 12px;
+  height: 12px;
+  background: 
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
+    linear-gradient(135deg, #444 0%, #222 100%);
+  border-radius: 50%;
+  border: 1px solid #333;
+  box-shadow: 
+    inset 0 1px 1px rgba(255, 255, 255, 0.2),
+    0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.category-music .visual-content h3,
+.category-music .audio-header h3 {
+  color: #f4e4bc;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.8),
+    0 0 8px rgba(244, 228, 188, 0.2);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+}
+
+@keyframes musicPowerLED {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Font family variables for wedding category randomization */
+:root {
+  --wedding-font-1: 'Luxurious Script';
+  --wedding-font-2: 'Instrument Serif';
+}

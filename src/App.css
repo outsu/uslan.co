@@ -27,41 +27,45 @@ button:focus-visible {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', system-ui, sans-serif;
   background: #0a0a0a;
   color: #ffffff;
-  overflow-x: hidden;
+  overflow-x: hidden; /* Keep this on body for fallback */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* Mobile optimizations */
   -webkit-tap-highlight-color: transparent;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
-  /* Prevent horizontal scroll */
+  /* Ensure no horizontal scroll */
+  width: 100%;
   max-width: 100vw;
+  /* Font loading optimization */
+  font-display: swap;
 }
 
-.coming-soon-container {
-  min-height: 100vh;
+.container {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  /* Prevent horizontal overflow */
-  overflow-x: hidden;
+  /* Better approach to prevent horizontal overflow */
+  width: 100%;
   max-width: 100vw;
+  overflow-x: hidden; /* Fallback for older browsers */
+  overflow-x: clip; /* Modern approach with better performance */
+  /* Ensure container doesn't cause layout shifts */
+  contain: layout;
 }
 
 /* Background Animation */
 .background-animation {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  background-attachment: fixed;
+  z-index: -1;
 }
 
 .floating-shapes {
@@ -137,7 +141,10 @@ body {
 /* Header */
 .header {
   padding: 2rem 3rem;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 10;
 }
 
@@ -152,7 +159,7 @@ body {
   font-family: 'Syne', sans-serif;
   font-weight: 600;
   font-size: 1rem;
-  background-color: #0a0a0a;
+  background-color: #fff;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -166,7 +173,7 @@ body {
 }
 
 .nav-link {
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(255, 255, 255, 0.8);
   height: 20px;
   text-decoration: none;
   font-family: 'Syne', sans-serif;
@@ -177,6 +184,14 @@ body {
   /* Touch improvements */
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
+}
+
+.nav-link.active {
+  color: #ffffff;
+}
+
+.nav-link.active::after {
+  width: 100%;
 }
 
 .nav-link::after {
@@ -207,7 +222,7 @@ body {
 .socials-dropdown-trigger {
   background: none;
   border: none;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(255, 255, 255, 0.8);
   font-family: 'Syne', sans-serif;
   font-weight: 500;
   font-size: 1rem;
@@ -244,7 +259,7 @@ body {
   box-shadow: 0 10px 30px rgba(255, 0, 102, 0.3);
   transform-origin: top center;
   /* Anti-design: intentionally broken appearance */
-  transform: translateX(-45%) rotate(-1deg);
+  transform: translateX(-45%) rotate(-2deg);
 }
 
 .dropdown-link {
@@ -336,12 +351,10 @@ body {
   color: white;
   text-decoration: none;
   font-family: 'Syne', sans-serif;
-  font-weight: 600;
-  font-size: 1rem;
+  font-weight: 700;
   border-radius: 50px;
   transition: all 0.3s ease;
   text-transform: uppercase;
-  letter-spacing: 1px;
   /* Touch improvements */
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
@@ -355,13 +368,16 @@ body {
 
 /* Main Content */
 .main-content {
-  flex: 1;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 0 2rem;
   position: relative;
-  margin-bottom: 100px
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  z-index: 1;
 }
 
 .hero-section {
@@ -371,7 +387,7 @@ body {
 }
 
 .hero-title {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Syne', system-ui, -apple-system, sans-serif;
   color: #ff3b3b;
   font-weight: 800;
   font-size: clamp(3rem, 8vw, 16rem);
@@ -621,7 +637,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
-  font-family: 'Courier New', monospace;
+  font-family: 'Permanent Marker', cursive;
   font-size: clamp(1rem, 4vw, 2rem);
   font-weight: bold;
 }
@@ -721,8 +737,8 @@ body {
   color: white;
   background: rgba(0, 0, 0, 0.4);
   font-size: 0.9rem;
-  margin: 10px 0;
-  transform: rotate(-1deg);
+  margin: 20px 0;
+  transform: rotate(-2deg);
 }
 
 .broken-credit.designer-credit-container {
@@ -777,9 +793,9 @@ body {
 
 /* Diagonal Strip */
 .diagonal-strip {
-  position: fixed;
-  bottom: 0;
-  margin-bottom: clamp(150px, 20vw, 250px);
+  position: absolute;
+  bottom: auto;
+  top: clamp(650px, 35vh, 400px);
   left: -20%;
   width: 140%;
   height: clamp(40px, 6vw, 80px);
@@ -790,13 +806,16 @@ body {
   backdrop-filter: blur(5px);
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  /* Ensure strips don't cause horizontal scroll */
+  will-change: transform;
+  contain: layout;
 }
 
 
 .diagonal-strip-2 {
-  position: fixed;
-  bottom: 0;
-  margin-bottom: clamp(160px, 21vw, 260px);
+  position: absolute;
+  bottom: auto;
+  top: clamp(666px, 37vh, 440px);
   left: -20%;
   width: 140%;
   height: clamp(30px, 4vw, 60px);
@@ -811,6 +830,9 @@ body {
   border-top: 3px solid #feca57;
   border-bottom: 3px solid #feca57;
   box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+  /* Ensure strips don't cause horizontal scroll */
+  will-change: transform;
+  contain: layout;
 }
 
 
@@ -840,12 +862,48 @@ body {
   flex-shrink: 0;
 }
 
+.mobile-only {
+  display: none;
+}
+
 @keyframes scrollStrip {
   0% {
     transform: translateX(0);
   }
   100% {
     transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 1200px) {
+  .diagonal-strip {
+    top: auto;
+    bottom: 30vh;
+  }
+
+  .diagonal-strip-2 {
+    top: auto;
+    bottom: 30.5vh;
+  }
+}
+
+@media (max-width: 900px) {
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: flex;
+  }
+  .diagonal-strip {
+    height: 30px;
+    top: auto;
+    bottom: 33vh;
+  }
+  .diagonal-strip-2 {
+    height: 25px;
+    top: auto;
+    bottom: 33.5vh;
   }
 }
 
@@ -877,6 +935,14 @@ body {
 }
 
 @media (max-width: 768px) {
+  .diagonal-strip {
+    height: 40px;
+  }
+
+  .diagonal-strip-2 {
+    height: 30px;
+  }
+
   .header {
     padding: 0.5rem 1rem;
     flex-direction: row;
@@ -893,7 +959,6 @@ body {
   }
 
   .hero-title {
-    font-size: clamp(2rem, 8vw, 4rem);
     margin-bottom: 0.5rem;
   }
 
@@ -920,15 +985,6 @@ body {
     padding: 1rem;
   }
 
-  .diagonal-strip {
-    height: 40px;
-    margin-bottom: 100px;
-  }
-
-  .diagonal-strip-2 {
-    height: 30px;
-    margin-bottom: 110px;
-  }
 
   .strip-content {
     font-size: 0.8rem;
@@ -942,7 +998,6 @@ body {
   }
 
   .header-top {
-    flex-direction: column;
     align-items: center;
     gap: 0.5rem;
     margin-bottom: 0.5rem;
@@ -1005,16 +1060,6 @@ body {
     font-size: 0.5rem;
   }
 
-  .diagonal-strip {
-    height: 40px;
-    margin-bottom: 120px;
-  }
-
-  .diagonal-strip-2 {
-    height: 30px;
-    margin-bottom: 130px;
-  }
-
   .strip-content {
     font-size: 0.7rem;
     gap: 0.5rem;
@@ -1028,13 +1073,6 @@ body {
 
 /* Responsive adjustments for diagonal strip */
 @media (max-width: 768px) {
-  .diagonal-strip {
-    margin-bottom: clamp(350px, 45vw, 400px);
-  }
-  
-  .diagonal-strip-2 {
-    margin-bottom: clamp(360px, 46vw, 410px);
-  }
   
   .strip-content {
     gap: clamp(0.8rem, 2vw, 1.5rem);
@@ -1049,6 +1087,7 @@ body {
   .contact-button {
     border: none;
     padding: 0;
+    text-decoration: wavy underline;
   }
 
   .header {
@@ -1060,13 +1099,6 @@ body {
 }
 
 @media (max-width: 480px) {
-  .diagonal-strip {
-    margin-bottom: clamp(280px, 60vw, 350px);
-  }
-  
-  .diagonal-strip-2 {
-    margin-bottom: clamp(290px, 61vw, 360px);
-  }
   
   .strip-content {
     gap: clamp(0.5rem, 1.5vw, 1rem);

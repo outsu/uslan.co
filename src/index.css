@@ -1,7 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Syne:wght@400;500;600;700;800&family=BioRhyme+Expanded:wght@200;300;400;700;800&family=Syncopate:wght@400;700&family=Permanent+Marker&family=Unbounded:wght@200..900&display=swap');
-
 :root {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', system-ui, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color-scheme: dark;
@@ -11,6 +9,29 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  /* Font loading optimization */
+  font-display: swap;
+}
+
+/* Prevent layout shift during font loading */
+.fonts-loading * {
+  font-display: swap;
+}
+
+/* Ensure fonts are properly loaded before showing content */
+body:not(.fonts-loaded) .main-content {
+  opacity: 0.8;
+}
+
+body.fonts-loaded .main-content {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* Ensure minimum content height during loading */
+.main-content {
+  min-height: 100vh;
 }
 
 * {
