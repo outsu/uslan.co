@@ -1,4 +1,5 @@
 import './App.css'
+import './components/AboutModern.css'
 import homeBackground from './assets/home-background.jpg'
 import { useAnimation } from 'framer-motion'
 import { useEffect, useState } from 'react'
@@ -8,6 +9,7 @@ import LandingPage from './components/LandingPage'
 import Showcase from './components/Showcase'
 import Footer from './components/Footer'
 import PortfolioPage from './pages/PortfolioPage'
+import AboutPage from './pages/AboutPage'
 
 function App() {
   const [isSocialsOpen, setIsSocialsOpen] = useState(false)
@@ -114,6 +116,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
+          <Route path="/about" element={<AboutPage />} />
         </Routes>
 
         <Footer />
